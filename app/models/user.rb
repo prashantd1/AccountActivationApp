@@ -26,7 +26,7 @@ class User < ApplicationRecord
 
 	def send_activation_email
     content = "<h1> Welcome #{name} </h1>"
-    content << "<p> please activate your account by clicking this http://localhost</p>"
+    content << "<p> please activate your account by clicking this #{Rails.configuration.x.app.callback_url}/account_activations/#{activation_token}/edit?email=#{email}</p>"
     #content << ""
 
     send_email(email, 'Activate your account', content)

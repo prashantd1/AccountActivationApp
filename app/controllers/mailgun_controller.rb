@@ -1,4 +1,7 @@
 class MailgunController < ApplicationController
+  include MailgunHelper
+
+  skip_before_action :verify_authenticity_token
   def click
   	write_to_csv(params)
   	render_success
@@ -6,7 +9,7 @@ class MailgunController < ApplicationController
 
   def bounce
   	write_to_csv(params)
-  	render_successs
+  	render_success
   end
 
   def render_success

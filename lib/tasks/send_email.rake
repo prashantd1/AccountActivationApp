@@ -1,11 +1,13 @@
+require "#{Rails.root}/app/helpers/mailgun_helper"
+
 namespace :send_email do
 
   include MailgunHelper
   desc "Sends followup email for activation"
   task send_followup_email: :environment do
   	email_list = get_not_clicked_email_list
-  	if(!email_list.nil? && !email.list.empty? && email_list.key?("items")) do
-  		email_address = email_list["items"].each{|email| emal["recipient"]}
+  	if(!email_list.nil? && !email_list.empty? && email_list.key?("items")) 
+  		email_address = email_list["items"].each{|email| email["recipient"]}
   		users = User.where(:email => email_address)
 	  	users.each do |user|
 	  		content = "<h1> #{user.name} </h1>"

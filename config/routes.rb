@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'mailgun/click'
+  post 'mailgun/click'
 
-  get 'mailgun/bounce'
+  post 'mailgun/bounce'
 
   get 'authentication/new'
 
@@ -22,4 +22,6 @@ Rails.application.routes.draw do
   root 'static_pages#home'
 
   resources :users
+
+  resources :account_activations, only: [:edit]
 end

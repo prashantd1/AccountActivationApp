@@ -83,4 +83,10 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.x.mailgun.api_key = 'api:key-8c3dfd11a669a186bb30177d07e10890'
+
+  config.x.mailgun.base_url = 'api.mailgun.net/v3/sandbox351893af32dd4ee0978351bc755c4a4c.mailgun.org'
+
+  config.x.app.callback_url = 'https://floating-chamber-19002.herokuapp.com'
 end
