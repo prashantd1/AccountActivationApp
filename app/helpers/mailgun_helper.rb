@@ -15,6 +15,8 @@ module MailgunHelper
 	end
 
 	def get_not_clicked_email_list
+		#not adding date criteria as of now because mailgun store log or stats for 2 days for free account.
+		#once become paid memeber we can add begin filter for to fetch all recorde 2 days before.
 	   response = get_logs 'delivered and NOT clicked'
 	end
 
@@ -49,6 +51,7 @@ module MailgunHelper
 
 	def get_logs(event)
 	  restclient_get("#{get_url}/events", {
+
 	    :"event" => event
 	  })
 	end
